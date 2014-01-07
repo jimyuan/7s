@@ -16,3 +16,174 @@
 // @import "../bower_components/bootstrap/less/buttons.less";
 
 //Site CSS
+html, body{
+  background: #027388;
+  height: 100%;
+}
+a:active,a:hover{
+  text-decoration: none;
+}
+nav.navbar{
+  .size(100%, 40px);
+  position:absolute;
+  top:0; left:0;
+  z-index: 100;
+  background:white;
+  a.navbar-brand{
+    .size(90px, 40px);
+    float: left;
+    display: block;
+    margin-left: -2px;
+    background: url(../images/brand.jpg) no-repeat;
+    background-size: contain;
+    text-indent: -10000px;
+  }
+  ul.nav-content{
+    height: 40px;
+    float: right;
+    margin: 0;
+    &>li{
+      float: left;
+      .size(116px/2,40px);
+      &>a{
+        .size(116px/2,40px);
+        background:url(../images/nav-menu.png) no-repeat;
+        background-size: 400%;
+        display:block;
+        text-indent: -10000px;
+      }
+    }
+    &>li:nth-child(1)>a{
+      background-position:-58px*0 0;
+    }
+    &>li:nth-child(2)>a{
+      background-position:-58px*1 0;
+    }
+    &>li:nth-child(3)>a{
+      background-position:-58px*2 0;
+    }
+    &>li:nth-child(4)>a{
+      background-position:-58px*3 0;
+    }
+    &>li.active:nth-child(1)>a{
+      background-position:-58px*0 -40px;
+    }
+    &>li.active:nth-child(2)>a{
+      background-position:-58px*1 -40px;
+    }
+    &>li.active:nth-child(3)>a{
+      background-position:-58px*2 -40px;
+    }
+    &>li.active:nth-child(4)>a{
+      background-position:-58px*3 -40px;
+    }
+  }
+}
+
+div.action-bar{
+  .size(100%, 35px);
+  background-color: rgba(9,103,117,.8);
+  &>a{
+    display:block;
+    line-height: 35px;
+    font-size: 12px;
+    text-align: center;
+    color:white;
+    margin-left:auto;
+    &.more-events{
+      width:212px/2;
+      background: url(../images/icon-heart.png) no-repeat 0 center;
+      background-size: 12px;
+    }
+  }
+}
+section{
+  .square(100%);
+  position:absolute;
+  top:0; left:0;
+  padding-top:40px;
+  .transition(all .5s ease-out);
+
+  &#seven-love{
+    background:#037489 url(../images/bg-seven.jpg) no-repeat center bottom;
+    background-size: contain;
+    &>.action-bar>a{
+      .size(85px, 35px);
+      background: url(../images/icon-info.png) no-repeat 0 center;
+      background-size: 14px;
+    }
+    &>a{
+      .size(154px, 32px);
+      background:url(../images/btn-enter.png) no-repeat;
+      background-size: contain;
+      position:absolute;
+      left:50%; bottom:82px;
+      margin-left: -154px/2;
+      text-indent: -10000px;
+    }
+  }
+  &#event-intro{
+    background:#0fbfca;
+    &>.action-bar>a{
+      .size(136px/2, 35px);
+      // margin-left:22px;
+      background: url(../images/icon-return.png) no-repeat 0 center;
+      background-size: 14px;
+    }
+    &>article{
+      font-size:14px;
+      padding:50px 30px 0;
+      color:white;
+    }
+  }
+  &#event-list{
+    background: #0fbfca;
+    &>.action-bar>a{
+      .size(136px/2, 35px);
+      // margin-left:22px;
+      background: url(../images/icon-return.png) no-repeat 0 center;
+      background-size: 14px;
+    }  
+    &>.event-link{
+      ul>li{
+        height:50px;
+        border-bottom:1px solid #87dfe5;
+        &:last-child{
+          border-width: 0;
+        }
+        &>a{
+          display:block;
+          padding-left:42px;
+          line-height:46px;
+          color:white;
+          background:url(../images/icon-enter.png) no-repeat 90% center;
+          background-size: 27px;
+          &>span{
+            font-size:30px;
+            padding-right:10px;
+          }
+          &>strong{
+            font-size:14px;
+          }
+          &>button{
+            color:#0fbfca;
+            border-width: 0;
+            margin-left:5px;
+            height:20px;
+            border-radius: 10px;
+            background:white;
+            line-height: 18px;
+            font-size: 12px;
+            font-weight: bold;
+            visibility: hidden;
+          }
+        }
+      }
+    }  
+  }
+  &#event-deep-1{
+    background:url(../images/bg-deep.jpg) no-repeat center bottom;
+    background-size: contain;
+  }
+}
+

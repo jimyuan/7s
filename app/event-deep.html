@@ -16,7 +16,6 @@
 </head>
 <body class="event-page">
   <nav class="navbar" role="navigation">
-  <!-- Brand and toggle get grouped for better mobile display -->
     <a class="navbar-brand" href="./">Brand</a>
     <ul class="nav-content list-unstyled">
       <li><a href="index.html">首页</a></li>
@@ -26,12 +25,27 @@
     </ul>
   </nav>
 
-  <section id="event-deep-1">
-    <div class="action-bar">
-      <a href="7-love.html#event-list" class="more-events">更多爱的体验</a>
-    </div>
-    <a href="#event-list"></a>
-  </section>
+  <div class="wrap">
+    <section id="event-deep-1" class="slideIn">
+      <div class="action-bar">
+        <a href="7-love.html#event-list" class="more-events">更多爱的体验</a>
+      </div>
+      <div class="wish-text"></div>
+      <div class="wish-make"><a href="#event-deep-2">立即许愿</a></div>
+      <div class="wish-tips">许下愿望之后，摇动7下看看会有什么惊喜吧！</div>
+    </section>
+
+    <section id="event-deep-2" class="slideOut">
+      <div class="action-bar">
+        <a href="#event-deep-1">返回</a>
+        <a href="#event-deep-1" class="submit-wish">确定 &gt;</a>
+      </div>
+      <textarea class="wish-content" noresize placeholder="我的爱的愿望是..."></textarea>
+      <div class="wish-count">
+        <span>限30字</span>
+      </div>
+    </section>
+  </div>
 
   <!-- build:js scripts/main.js -->
   <script src="bower_components/quojs/quo.js"></script>

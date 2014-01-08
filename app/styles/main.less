@@ -19,10 +19,21 @@
 html, body{
   background: #027388;
   height: 100%;
+  overflow:hidden;
 }
 a:active,a:hover{
   text-decoration: none;
 }
+/* insite mixin define start*/
+//返回按钮 
+.return(){
+  .size(136px/2, 35px);
+  margin-left:22px;
+  background: url(../images/icon-return.png) no-repeat 0 center;
+  background-size: 14px;
+}
+/* insite mixin define end*/
+
 nav.navbar{
   .size(100%, 40px);
   position:absolute;
@@ -97,12 +108,26 @@ div.action-bar{
     }
   }
 }
-section{
-  .square(100%);
+div.wrap{
   position:absolute;
+  .square(100%);
   top:0; left:0;
+  overflow: hidden;
+}
+section{
+  position:absolute;
+  .square(100%);
+  top:0; 
   padding-top:40px;
-  .transition(all .5s ease-out);
+  height:100%;
+  .transition(left .5s ease-out);
+
+  &.slideOut{
+    left:100%;
+  }
+  &.slideIn{
+    left:0;
+  }
 
   &#seven-love{
     background:#037489 url(../images/bg-seven.jpg) no-repeat center bottom;
@@ -125,10 +150,7 @@ section{
   &#event-intro{
     background:#0fbfca;
     &>.action-bar>a{
-      .size(136px/2, 35px);
-      // margin-left:22px;
-      background: url(../images/icon-return.png) no-repeat 0 center;
-      background-size: 14px;
+      .return;
     }
     &>article{
       font-size:14px;
@@ -139,10 +161,7 @@ section{
   &#event-list{
     background: #0fbfca;
     &>.action-bar>a{
-      .size(136px/2, 35px);
-      // margin-left:22px;
-      background: url(../images/icon-return.png) no-repeat 0 center;
-      background-size: 14px;
+      .return;
     }  
     &>.event-link{
       ul>li{
@@ -184,6 +203,67 @@ section{
   &#event-deep-1{
     background:url(../images/bg-deep.jpg) no-repeat center bottom;
     background-size: contain;
+    &>.wish-make>a{
+      position:absolute;
+      width:150px;
+      left:50%;
+      margin-left:-150px/2;
+      text-align: center;
+      font-size:20px;
+      line-height: 100px;
+      color:white;
+      bottom:70px;
+    }
+    &>.wish-text{
+      .size(150px, 100px);
+      position:absolute;
+      left:50%;
+      margin-left:-150px/2;
+      text-align: center;
+      font-size:16px;
+      color:white;
+      bottom:60px;
+
+    }
+    &>.wish-tips{
+      position:absolute;
+      width:100%;
+      text-align: center;
+      bottom:10px;
+      color:#097473;
+      visibility:hidden;
+    }
+  }
+  &#event-deep-2{
+    background:#0fbfca;
+    &>.action-bar>a{
+      .return;
+    }
+    &>.action-bar>a:last-child{
+      float:right;
+      margin-top:-35px;
+      background:none;
+
+    }
+    &>.wish-content{
+      .size(540px/2, 166px/2);
+      .center-block;
+      margin-top:15px;
+    }
+    &>.wish-count{
+      width:540px/2;
+      .center-block;
+      font-size:14px;
+      color:white;
+      line-height: 24px;
+      &>span{
+        display:block;
+        margin-left:auto;
+        width:65px;
+        background:url(../images/icon-delete.png) no-repeat right center;
+        background-size: 12px;
+      }
+    }
   }
 }
 

@@ -543,7 +543,6 @@ html,
 body {
   background: #027388;
   height: 100%;
-  overflow: hidden;
 }
 a:active,
 a:hover {
@@ -644,8 +643,6 @@ section {
   top: 0;
   padding-top: 40px;
   height: 100%;
-  -webkit-transition: left 0.5s ease-out;
-  transition: left 0.5s ease-out;
 }
 section.slideOut {
   left: 100%;
@@ -734,7 +731,7 @@ section#event-list > .event-link ul > li > a > button {
   visibility: hidden;
 }
 section#event-deep-1 {
-  background: url(../images/bg-deep.jpg) no-repeat center bottom;
+  background: #037489 url(../images/bg-deep.jpg) no-repeat center bottom;
   background-size: contain;
 }
 section#event-deep-1 > .wish-make > a {
@@ -747,25 +744,6 @@ section#event-deep-1 > .wish-make > a {
   line-height: 100px;
   color: white;
   bottom: 70px;
-}
-section#event-deep-1 > .wish-text {
-  width: 150px;
-  height: 100px;
-  position: absolute;
-  left: 50%;
-  margin-left: -75px;
-  text-align: center;
-  font-size: 16px;
-  color: white;
-  bottom: 60px;
-}
-section#event-deep-1 > .wish-tips {
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  bottom: 10px;
-  color: #097473;
-  visibility: hidden;
 }
 section#event-deep-2 {
   background: #0fbfca;
@@ -805,5 +783,106 @@ section#event-deep-2 > .wish-count > span {
   width: 65px;
   background: url(../images/icon-delete.png) no-repeat right center;
   background-size: 12px;
+}
+section#event-deep-3 {
+  background: #037489 url(../images/bg-deep-3.jpg) no-repeat center bottom;
+  background-size: contain;
+}
+section#event-deep-3 > .wish-full {
+  width: 217px;
+  height: 181px;
+  background: url(../images/heart-full-s.png) no-repeat;
+  background-position: 0 90.5px;
+  position: absolute;
+  left: 50%;
+  margin-left: -108.5px;
+  bottom: 22px;
+}
+section#event-deep-3 > .wish-heart {
+  width: 222px;
+  height: 185px;
+  background: url(../images/big-heart.png) no-repeat;
+  background-size: contain;
+  position: absolute;
+  left: 50%;
+  margin-left: -110px;
+  bottom: 20px;
+}
+section#event-deep-3 > .wish-text {
+  width: 150px;
+  height: 100px;
+  position: absolute;
+  left: 50%;
+  margin-left: -75px;
+  text-align: center;
+  font-size: 16px;
+  color: white;
+  bottom: 60px;
+}
+section#event-deep-3 > .wish-tips {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 8px;
+  color: #097473;
+}
+section#event-over {
+  background: #037489 url(../images/bg-over.jpg) no-repeat center bottom;
+  background-size: 100%;
+}
+section#event-over div.sm > a {
+  width: 133px;
+  height: 36px;
+  display: block;
+  background-size: contain;
+  text-indent: -10000px;
+  margin-top: 250px;
+}
+section#event-over div.sm > a.btn-share {
+  background-image: url(../images/btn-share.png);
+  float: left;
+  margin-left: 27px;
+}
+section#event-over div.sm > a.btn-mall {
+  background-image: url(../images/btn-mall.png);
+  float: right;
+  margin-right: 25px;
+}
+section#event-share-ok {
+  background: #037489 url(../images/bg-share-ok.jpg) no-repeat center bottom;
+  background-size: contain;
+}
+section#event-share-ok > .share-ok {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 34px;
+  width: 230px;
+  color: white;
+}
+section#event-share-ok > .share-ok > p:first-child {
+  font-size: 20px;
+  text-align: center;
+}
+section#event-share-ok > .share-ok > p:last-child {
+  font-size: 15px;
+}
+section#event-share-ok div.sm > a {
+  width: 133px;
+  height: 36px;
+  background-size: contain;
+  text-indent: -10000px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 158px;
+}
+section#event-share-ok div.sm > a.btn-apply {
+  background-image: url(../images/btn-apply.png);
+  margin-top: 16px;
+  margin-bottom: 12px;
+}
+section#event-share-ok div.sm > a.btn-mall {
+  background-image: url(../images/btn-mall2.png);
 }
 /*# sourceMappingURL=/styles/main.css.map */

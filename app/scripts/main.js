@@ -5,17 +5,19 @@
       common.transfer=function($o){ //单页场景切换
         var hash=window.location.hash;
         if($(hash).length>0){
-          $("section.slideIn").removeClass("slideIn").addClass("slideOut");
-          $(hash).removeClass("slideOut").addClass("slideIn");
+          Common.createNew().goScence($(hash));
         }
 
         $o.on("tap", function(){
           var target=$($(this).attr("href"));
-          $("section.slideIn").removeClass("slideIn").addClass("slideOut");
-          target.removeClass("slideOut").addClass("slideIn");
+          Common.createNew().goScence(target);
         }).on("click", function(e){
           e.preventDefault();
         });
+      }
+      common.goScence=function($o){
+        $("section.slideIn").removeClass("slideIn").addClass("slideOut");
+        $o.removeClass("slideOut").addClass("slideIn");
       }
       return common;
     }
@@ -38,6 +40,7 @@
       eventDeep.init=function(){
         var $o=$("#event-deep-1>.wish-make>a, #event-deep-2>.action-bar>a:first-child");
         c.transfer($o);
+        // shake();
 
         $(".event-page .wish-count>span").on("tap", function(){
           $(".wish-content").val("");
@@ -46,12 +49,25 @@
           if($(".wish-content").val()==="") {return false;}
           else{
             c.transfer($(this));
-            $("#event-deep-1 .wish-text").html($(".wish-content").val().substring(0,30));
-            $("#event-deep-1 .wish-make").style("visibility", "hidden");
-            $("#event-deep-1 .wish-tips").style("visibility", "visible");
+            $("#event-deep-3 .wish-text").html($(".wish-content").val().substring(0,30));
+            shake();
           }
         }).on("click", function(){return false;});
 
+      };
+
+      var shake=function(){
+        var c = 0;
+        var h = $(".wish-full").height();
+        $(window).on("click", function(){
+          if(c<7){
+            $(".wish-full").style("background-position", "0 -"+c*h+"px");
+            c++;
+          }
+          if(c===7){
+            window.setTimeout(function(){window.location="event-over.html"},2000)
+          }
+        });
       };
       return eventDeep;
     }

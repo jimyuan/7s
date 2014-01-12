@@ -975,6 +975,8 @@ section {
   top: 0;
   padding-top: 40px;
   height: 100%;
+  -webkit-transition: left 0.5s ease-out;
+  transition: left 0.5s ease-out;
 }
 section.slideOut {
   left: 100%;
@@ -1099,6 +1101,8 @@ section#event-deep-2 > .wish-content {
   margin-left: auto;
   margin-right: auto;
   margin-top: 15px;
+  border-radius: 0;
+  border-color: #1fadb4;
 }
 section#event-deep-2 > .wish-count {
   width: 270px;
@@ -1168,21 +1172,22 @@ section#event-over div.sm > a {
   display: block;
   background-size: contain;
   text-indent: -10000px;
-  margin-top: 250px;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
 }
 section#event-over div.sm > a.btn-share {
   background-image: url(../images/btn-share.png);
-  float: left;
-  margin-left: 27px;
+  margin-left: -133px;
 }
 section#event-over div.sm > a.btn-mall {
   background-image: url(../images/btn-mall.png);
-  float: right;
-  margin-right: 25px;
+  margin-right: 133px;
 }
 section#event-share-ok {
-  background: #037489 url(../images/bg-share-ok.jpg) no-repeat center bottom;
+  background: #24afb8 url(../images/bg-share-ok.jpg) no-repeat center 0;
   background-size: contain;
+  /*height:830px/2;*/
 }
 section#event-share-ok > .share-ok {
   display: block;
@@ -1218,9 +1223,10 @@ section#event-share-ok div.sm > a.btn-mall {
   background-image: url(../images/btn-mall2.png);
 }
 section#event-apply-form {
-  background: #037489 url(../images/bg-share-ok.jpg) no-repeat center bottom;
+  background: #24afb8 url(../images/bg-share-ok.jpg) no-repeat center 0%;
   background-size: contain;
-  height: 415px;
+  min-height: 400px;
+  /*height:830px/2;    */
 }
 section#event-apply-form > .apply-form {
   display: block;
@@ -1258,5 +1264,107 @@ section#event-apply-form > .apply-form > form > .form-group > div > .apply-submi
   background-size: contain;
   text-indent: -10000px;
   background-image: url(../images/btn-submit.png);
+}
+section#event-glow-1 {
+  background: #027388 url(../images/bg-glow.jpg) no-repeat center bottom;
+  background-size: contain;
+}
+section#event-glow-1 > .glow-slogen {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: white;
+  font-size: 14px;
+  width: 260px;
+}
+section#event-glow-1 > .glow-slogen > p:first-child {
+  font-size: 26px;
+  line-height: 48px;
+  margin: 0;
+}
+section#event-glow-1 > .radiance {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: url(../images/bg-radiance.png) no-repeat 50% 100%;
+  background-size: 110%;
+  visibility: hidden;
+}
+section#event-glow-1 > .sun-glow {
+  width: 152px;
+  height: 152px;
+  border-radius: 76px;
+  position: absolute;
+  left: 50%;
+  margin-left: -76px;
+  bottom: 90px;
+  background-image: -webkit-radial-gradient(circle closest-side, #ffffff 10%, rgba(255, 248, 72, 0.85) 60%, rgba(255, 255, 255, 0) 100%);
+  background-image: radial-gradient(circle closest-side, #ffffff 10%, rgba(255, 248, 72, 0.85) 60%, rgba(255, 255, 255, 0) 100%);
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+section#event-glow-1 > .sun-glow.glow-x1 {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+section#event-glow-1 > .sun-glow.glow-x2 {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+section#event-glow-1 > .sun-glow.glow-x3 {
+  -webkit-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
+}
+section#event-glow-1 > .sun-glow.glow-x4 {
+  -webkit-transform: scale(1.4);
+  -ms-transform: scale(1.4);
+  transform: scale(1.4);
+}
+section#event-glow-1 > .sun-glow.glow-x5 {
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+}
+section#event-glow-1 > .sun-glow.glow-x6 {
+  -webkit-transform: scale(1.6);
+  -ms-transform: scale(1.6);
+  transform: scale(1.6);
+}
+section#event-glow-1 > .sun-glow.glow-x7 {
+  -webkit-transform: scale(1.7);
+  -ms-transform: scale(1.7);
+  transform: scale(1.7);
+}
+section#event-glow-1 > .glow-tips {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  color: white;
+  bottom: 45px;
+}
+section#event-glow-1 > .click-count {
+  background: #11909e;
+  width: 100%;
+  height: 35px;
+  line-height: 35px;
+  color: white;
+  position: absolute;
+  bottom: 0;
+}
+section#event-glow-1 > .click-count > p {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  margin-bottom: 0;
+  text-align: right;
+  background: url(../images/icon-sun.png) no-repeat 0 center;
+  background-size: 17px;
 }
 /*# sourceMappingURL=/styles/main.css.map */

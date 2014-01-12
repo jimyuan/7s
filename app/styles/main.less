@@ -127,7 +127,7 @@ section{
   top:0; 
   padding-top:40px;
   height:100%;
-  // .transition(left .5s ease-out);
+  .transition(left .5s ease-out);
 
   &.slideOut{
     left:100%;
@@ -237,6 +237,8 @@ section{
       .size(540px/2, 166px/2);
       .center-block;
       margin-top:15px;
+      border-radius: 0;
+      border-color: #1fadb4;
     }
     &>.wish-count{
       width:540px/2;
@@ -299,23 +301,22 @@ section{
     // height:830px/2;
     div.sm>a{
       .smbtn;
-      margin-top:250px;
+      position: absolute;
+      bottom:50px; left:50%;
       &.btn-share{
         background-image:url(../images/btn-share.png);
-        float:left;
-        margin-left: 54px/2;                                
+        margin-left: -266px/2;                                
       }
       &.btn-mall{
         background-image: url(../images/btn-mall.png);
-        float:right;
-        margin-right:50px/2;
+        margin-right:266px/2;
       }
     }
   }
   &#event-share-ok{
-    background:#037489 url(../images/bg-share-ok.jpg) no-repeat center bottom;
+    background:#24afb8 url(../images/bg-share-ok.jpg) no-repeat center 0;
     background-size: contain;
-    // height:830px/2;
+    /*height:830px/2;*/
     &>.share-ok{
       .center-block;
       padding-top: 68px/2;
@@ -344,9 +345,10 @@ section{
     }
   }
   &#event-apply-form{
-    background:#037489 url(../images/bg-share-ok.jpg) no-repeat center bottom;
+    background:#24afb8 url(../images/bg-share-ok.jpg) no-repeat center 0%;
     background-size: contain;
-    height:830px/2;    
+    min-height: 400px;
+    /*height:830px/2;    */
     &>.apply-form{
       .center-block;
       width:508px/2;
@@ -376,6 +378,72 @@ section{
             background-image: url(../images/btn-submit.png);
           }
         }
+      }
+    }
+  }
+  &#event-glow-1{
+    background: #027388 url(../images/bg-glow.jpg) no-repeat center bottom;
+    background-size: contain;
+    &>.glow-slogen{
+      .center-block;
+      text-align: center;
+      color:white;
+      font-size:14px;
+      width:520px/2;
+      &>p:first-child{
+        font-size:52px/2;
+        line-height: 96px/2;
+        margin:0;
+      }
+    }
+    &>.radiance{
+      .square(100%);
+      position: absolute;
+      left:0; bottom:0;
+      background: url(../images/bg-radiance.png) no-repeat 50% 100%;
+      background-size: 110%;
+      visibility: hidden;
+    }
+    &>.sun-glow{
+      @w: 304px/2;
+      .square(@w);
+      border-radius: @w/2;
+      position: absolute;
+      left:50%;
+      margin-left: -@w/2;
+      bottom:90px;
+      background-image: -webkit-radial-gradient(circle closest-side, rgba(255, 255, 255, 1) 10%, rgba(255, 248, 72,.85) 60%, rgba(255, 255, 255,0) 100%);
+      background-image: radial-gradient(circle closest-side, rgba(255, 255, 255, 1) 10%, rgba(255, 248, 72,.85) 60%, rgba(255, 255, 255,0) 100%);
+      .transition(all .5s ease-out);
+      &.glow-x1{.scale(1.1);}
+      &.glow-x2{.scale(1.2);}
+      &.glow-x3{.scale(1.3);}
+      &.glow-x4{.scale(1.4);}
+      &.glow-x5{.scale(1.5);}
+      &.glow-x6{.scale(1.6);}
+      &.glow-x7{.scale(1.7);}
+    }
+    &>.glow-tips{
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      color: white;
+      bottom:45px;
+    }
+    &>.click-count{
+      background:#11909e;
+      .size(100%,35px);
+      line-height: 35px;
+      color: white;
+      position: absolute;
+      bottom: 0;
+      &>p{
+        .center-block;
+        width:100px;
+        margin-bottom: 0;
+        text-align: right;
+        background: url(../images/icon-sun.png) no-repeat 0 center;
+        background-size: 17px;
       }
     }
   }

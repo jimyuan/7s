@@ -29,6 +29,7 @@
       seven.init=function(){
         var $o=$(".seven-page .action-bar>a, #seven-love>a");
         c.transfer($o);
+        $("#seven-love>a").on("click", function(){return false;})
       }
       return seven;
     }
@@ -59,7 +60,11 @@
       var shake=function(){
         var c = 0;
         var h = $(".wish-full").height();
-        $(window).on("click", function(){
+        $(window).on("shake", function(e){
+          e.preventDefault();
+          if($("#event-deep-2")) {
+            $("#event-deep-2").remove();
+          }
           if(c<7){
             $(".wish-full").style("background-position", "0 -"+c*h+"px");
             c++;
@@ -73,9 +78,30 @@
     }
   };
 
+  var EventGlow={
+    createNew:function(){
+      var eventGlow={}, tapCount=0;
+      eventGlow.init=function(){
+        $("#event-glow-1>.sun-glow").on("tap", function(){
+          if(tapCount<7){
+            tapCount++;
+            $(this).addClass("glow-x"+tapCount);
+            $(".click-count>p>span").html(tapCount);
+          }
+          if(tapCount===7){
+            $(".radiance").style("visibility", "visible");
+            window.setTimeout(function(){window.location="event-over.html"},2000)
+          }
+        });
+      }
+      return eventGlow;
+    }
+  }
+
   var Init=function(){
     $("section").on("touchmove", function(e){e.preventDefault();});
     Seven.createNew().init();
     EventDeep.createNew().init();
+    EventGlow.createNew().init();
   }();
 }(window.Quo);

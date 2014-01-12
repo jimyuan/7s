@@ -29,7 +29,12 @@
       seven.init=function(){
         var $o=$(".seven-page .action-bar>a, #seven-love>a");
         c.transfer($o);
-        $("#seven-love>a").on("click", function(){return false;})
+        $("#seven-love>a").on("click", function(){return false;});
+        this.listHeight();
+      }
+      seven.listHeight=function(){
+        var h=window.innerHeight-$("nav.navbar").height()-$(".action-bar").height();
+        $(".seven-page .event-link ul").style("height",h+"px").children().style("height",h/3+"px");
       }
       return seven;
     }

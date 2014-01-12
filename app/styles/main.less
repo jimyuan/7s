@@ -145,12 +145,12 @@ section{
       background-size: 14px;
     }
     &>a{
-      .size(154px, 32px);
+      .size(336px/2, 72px/2);
       background:url(../images/btn-enter.png) no-repeat;
       background-size: contain;
       position:absolute;
-      left:50%; bottom:82px;
-      margin-left: -154px/2;
+      left:50%; bottom:10px;
+      margin-left: -336px/4;
       text-indent: -10000px;
     }
   }
@@ -172,36 +172,58 @@ section{
     }  
     &>.event-link{
       ul>li{
-        height:50px;
-        border-bottom:1px solid #87dfe5;
-        &:last-child{
-          border-width: 0;
+        display:block;
+        width:50%;
+        float:left;
+        &:nth-child(2n+1){
+          border-bottom:1px solid #87dfe5;
+          border-right:1px solid #87dfe5;
+        }
+        &:nth-child(2n){
+          border-bottom:1px solid #87dfe5;
+        }
+        &:nth-child(5),&:nth-child(6){
+          border-bottom-width:0;
         }
         &>a{
           display:block;
-          padding-left:42px;
-          line-height:46px;
+          .square(100%);
           color:white;
-          background:url(../images/icon-enter.png) no-repeat 90% center;
-          background-size: 27px;
+          text-align: center;
           &>span{
+            display: block;
             font-size:30px;
-            padding-right:10px;
+            margin-top: 10%;
           }
           &>strong{
+            display: block;
             font-size:14px;
+            &:after{
+              content:">";
+              padding-left:6px;
+            }
           }
           &>button{
             color:#0fbfca;
             border-width: 0;
-            margin-left:5px;
             height:20px;
             border-radius: 10px;
             background:white;
             line-height: 18px;
             font-size: 12px;
             font-weight: bold;
-            visibility: hidden;
+            margin-top: 2px;
+            opacity: 0;
+          }
+        }
+      }
+      ul>li.passed{
+        &>a{
+          &>span{
+            margin-top: 5%;
+          }
+          &>button{
+            opacity: 1;
           }
         }
       }

@@ -101,12 +101,38 @@
       }
       return eventGlow;
     }
-  }
+  };
+
+  var EventBeauty={
+    createNew:function(){
+      var eventBeauty={};
+      eventBeauty.init=function(){
+
+      };
+      return eventBeauty;
+    }
+  };
+
+  var EventTouch={
+    createNew:function(){
+      var eventTouch={};
+      eventTouch.init=function(){
+        $(".pinch").on("pinchIn", function(){
+          $(".big-glow").style("visibility", "visible");
+          $(".pinch").style("visibility", "hidden");
+          window.setTimeout(function(){window.location="event-over.html"},2000);
+        });
+      };
+      return eventTouch;
+    }
+  };
 
   var Init=function(){
     $("section").on("touchmove", function(e){e.preventDefault();});
     Seven.createNew().init();
     EventDeep.createNew().init();
     EventGlow.createNew().init();
+    EventBeauty.createNew().init();
+    EventTouch.createNew().init();
   }();
 }(window.Quo);

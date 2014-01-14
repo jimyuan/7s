@@ -39,6 +39,18 @@ a:active,a:hover{
   background-size: contain;
   text-indent: -10000px;
 }
+
+//pinch-left keyframes
+@-webkit-keyframes pinch-left{
+  to{
+    .translate(15px, 0);
+  }
+}
+@-webkit-keyframes pinch-right{
+  to{
+    .translate(-15px, 0);
+  }
+}
 /* insite mixin define end*/
 
 nav.navbar{
@@ -466,6 +478,53 @@ section{
         text-align: right;
         background: url(../images/icon-sun.png) no-repeat 0 center;
         background-size: 17px;
+      }
+    }
+  }
+  &#event-touch-1{
+    background: #8099ad url(../images/bg-touch.jpg) no-repeat center bottom;
+    background-size: contain;
+    &>.touch-content{
+      width:544px/2;
+      .center-block;
+      color:white;
+      font-size:14px;
+      text-align: center;
+      &>p:first-child{
+        font-size:26px;
+        margin:0;
+        margin-top:24px;
+      }
+      &>p:last-child{
+        margin:16px 0;
+      }
+    }
+    &>.big-glow{
+      .square(100%);
+      top:0; left:0;
+      position:absolute;
+      background: url(../images/bg-big-glow.png) no-repeat center 100%;
+      background-size: contain;
+      visibility:hidden;
+    }
+    &>.pinch{
+      .size(220px, 21px);
+      position:absolute;
+      top:192px; left:50%;
+      margin-left: -220px/2;
+      &>.pinchLeft{
+        .size(74px/2, 44px/2);
+        float:left;
+        background:url(../images/pinch-left.png) no-repeat;
+        background-size: contain;
+        .animation(pinch-left .8s linear infinite alternate)
+      }
+      &>.pinchRight{
+        .size(74px/2, 44px/2);
+        float:right;
+        background:url(../images/pinch-right.png) no-repeat;
+        background-size: contain;
+        .animation(pinch-right .8s linear infinite alternate)
       }
     }
   }

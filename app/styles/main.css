@@ -881,6 +881,20 @@ a:hover {
   text-decoration: none;
 }
 /* insite mixin define start*/
+@-webkit-keyframes pinch-left {
+  to {
+    -webkit-transform: translate(15px, 0);
+    -ms-transform: translate(15px, 0);
+    transform: translate(15px, 0);
+  }
+}
+@-webkit-keyframes pinch-right {
+  to {
+    -webkit-transform: translate(-15px, 0);
+    -ms-transform: translate(-15px, 0);
+    transform: translate(-15px, 0);
+  }
+}
 /* insite mixin define end*/
 nav.navbar {
   width: 100%;
@@ -1386,5 +1400,62 @@ section#event-glow-1 > .click-count > p {
   text-align: right;
   background: url(../images/icon-sun.png) no-repeat 0 center;
   background-size: 17px;
+}
+section#event-touch-1 {
+  background: #8099ad url(../images/bg-touch.jpg) no-repeat center bottom;
+  background-size: contain;
+}
+section#event-touch-1 > .touch-content {
+  width: 272px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+}
+section#event-touch-1 > .touch-content > p:first-child {
+  font-size: 26px;
+  margin: 0;
+  margin-top: 24px;
+}
+section#event-touch-1 > .touch-content > p:last-child {
+  margin: 16px 0;
+}
+section#event-touch-1 > .big-glow {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background: url(../images/bg-big-glow.png) no-repeat center 100%;
+  background-size: contain;
+  visibility: hidden;
+}
+section#event-touch-1 > .pinch {
+  width: 220px;
+  height: 21px;
+  position: absolute;
+  top: 192px;
+  left: 50%;
+  margin-left: -110px;
+}
+section#event-touch-1 > .pinch > .pinchLeft {
+  width: 37px;
+  height: 22px;
+  float: left;
+  background: url(../images/pinch-left.png) no-repeat;
+  background-size: contain;
+  -webkit-animation: pinch-left 0.8s linear infinite alternate;
+  animation: pinch-left 0.8s linear infinite alternate;
+}
+section#event-touch-1 > .pinch > .pinchRight {
+  width: 37px;
+  height: 22px;
+  float: right;
+  background: url(../images/pinch-right.png) no-repeat;
+  background-size: contain;
+  -webkit-animation: pinch-right 0.8s linear infinite alternate;
+  animation: pinch-right 0.8s linear infinite alternate;
 }
 /*# sourceMappingURL=/styles/main.css.map */

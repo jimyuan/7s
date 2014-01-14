@@ -51,6 +51,12 @@ a:active,a:hover{
     .translate(-15px, 0);
   }
 }
+
+//normal white size
+.f14-w(){
+  font-size: 14px;
+  color: white;
+}
 /* insite mixin define end*/
 
 nav.navbar{
@@ -387,8 +393,7 @@ section{
       .center-block;
       width:508px/2;
       &>p{
-        font-size: 14px;
-        color: white;
+        .f14-w;
         margin-top: 15px;
         margin-bottom: 20px;
       }
@@ -397,8 +402,7 @@ section{
         margin: 0;
         margin-bottom: 34px/2;
         &>label{
-          font-size: 14px;
-          color: white;
+          .f14-w;
         }
         &>div{
           width:80%;
@@ -420,9 +424,8 @@ section{
     background-size: contain;
     &>.glow-slogen{
       .center-block;
+      .f14-w;
       text-align: center;
-      color:white;
-      font-size:14px;
       width:520px/2;
       &>p:first-child{
         font-size:52px/2;
@@ -458,17 +461,17 @@ section{
       &.glow-x7{.scale(1.7);}
     }
     &>.glow-tips{
+      .f14-w;
       position: absolute;
       width: 100%;
       text-align: center;
-      color: white;
       bottom:45px;
     }
     &>.click-count{
+      .f14-w;
       background:#11909e;
       .size(100%,35px);
       line-height: 35px;
-      color: white;
       position: absolute;
       bottom: 0;
       &>p{
@@ -481,14 +484,41 @@ section{
       }
     }
   }
+  &#event-beauty-1{
+    min-height: 830px/2;
+    background: #037389 url(../images/bg-beautiful.jpg) no-repeat 0 bottom;
+    background-size: contain;
+    &>.beauty-content{
+      width:544px/2;
+      .center-block;
+      .f14-w;
+      text-align: center;
+      &>p:first-child{
+        font-size:26px;
+        margin:0;
+        margin-top: 38px/2;
+      }
+    }
+    &>.upload-area{
+      .size(380px/2, 344px/2);
+      .center-block;
+      .box-sizing(border-box);
+      border:5px solid white;
+      background-color: darken(#fafafa, 10%);
+      margin-bottom: 10px;
+    }
+    &>img{
+      .center-block;
+      width:306px/2;
+    }
+  }
   &#event-touch-1{
     background: #8099ad url(../images/bg-touch.jpg) no-repeat center bottom;
     background-size: contain;
     &>.touch-content{
       width:544px/2;
       .center-block;
-      color:white;
-      font-size:14px;
+      .f14-w;
       text-align: center;
       &>p:first-child{
         font-size:26px;
@@ -526,6 +556,77 @@ section{
         background-size: contain;
         .animation(pinch-right .8s linear infinite alternate)
       }
+    }
+  }
+  &#event-scent-1{
+    background: #02768a url(../images/bg-scent.jpg) no-repeat center bottom;
+    background-size: contain;
+    &>.scent-content{
+      .center-block;
+      .f14-w;
+      width:340px/2;
+      text-align: center;
+      padding-top: -2px;
+      &>p:first-child{
+        font-size:26px;
+        margin:0;
+      }
+    }
+    &>.heart-zone{
+      .size(458px/2,358px/2);
+      position: absolute;
+      left:50%; bottom:98px/2;
+      margin-left: -458px/4;
+      &.kissed{
+        background: url(../images/kissed.png) no-repeat 53% 80%;
+        background-size: 25%;
+      }
+    }
+  }
+  &#event-revitalised-1{
+    background: #02768a url(../images/bg-revitalised.jpg) no-repeat center bottom;
+    background-size: contain;
+    &>.rev-content{
+      .center-block;
+      .f14-w;
+      text-align: center;
+      width:470px/2;
+      &>p:first-child{
+        font-size:26px;
+        margin:0;
+        margin-top: 50px;
+      }
+    }
+    &>.text-mark{
+      .box-sizing(border-box);
+      width:440px/2;
+      line-height: 68px/2;
+      position: absolute;
+      bottom:250px/2; left:50%;
+      margin-left: -440px/4;
+      background: white;
+      padding:0 14px;
+      font-size: 16px;
+      color:#149aa7;
+    }
+    &>.text-input{
+      width:440px/2;
+      line-height: 68px/2;
+      height:68px/2;
+      position: absolute;
+      bottom:250px/2; left:50%;
+      margin-left: -440px/4;
+      padding:0 14px;
+      opacity: .4;
+      font-size: 16px;
+      border-width:0;
+      border-radius:0;
+    }
+    &>img{
+      .center-block;
+      width:440px/2;
+      margin-top: 60px;
+      visibility: hidden;
     }
   }
 }

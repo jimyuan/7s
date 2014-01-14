@@ -14,14 +14,19 @@
         }).on("click", function(e){
           e.preventDefault();
         });
-      }
+      };
+
       common.goScence=function($o){
         $("section.slideIn").removeClass("slideIn").addClass("slideOut");
         $o.removeClass("slideOut").addClass("slideIn");
-      }
+      };
+
+      common.goto=function(){ //event完毕，跳转到分享页面
+        window.setTimeout(function(){window.location="event-over.html";},2000);
+      };
       return common;
     }
-  }
+  };
 
   var Seven={
     createNew:function(){
@@ -31,11 +36,11 @@
         c.transfer($o);
         $("#seven-love>a").on("click", function(){return false;});
         this.listHeight();
-      }
+      };
       seven.listHeight=function(){
         var h=window.innerHeight-$("nav.navbar").height()-$(".action-bar").height();
         $(".seven-page .event-link ul").style("height",h+"px").children().style("height",h/3+"px");
-      }
+      };
       return seven;
     }
   };
@@ -67,15 +72,15 @@
         var h = $(".wish-full").height();
         $(window).on("shake", function(e){
           e.preventDefault();
-          if($("#event-deep-2")) {
+          // if($("#event-deep-2")) {
             $("#event-deep-2").remove();
-          }
+          // }
           if(c<7){
             $(".wish-full").style("background-position", "0 -"+c*h+"px");
             c++;
           }
           if(c===7){
-            window.setTimeout(function(){window.location="event-over.html"},2000)
+            Common.createNew().goto();
           }
         });
       };
@@ -95,10 +100,10 @@
           }
           if(tapCount===7){
             $(".radiance").style("visibility", "visible");
-            window.setTimeout(function(){window.location="event-over.html"},2000)
+            Common.createNew().goto();
           }
         });
-      }
+      };
       return eventGlow;
     }
   };
@@ -120,19 +125,66 @@
         $(".pinch").on("pinchIn", function(){
           $(".big-glow").style("visibility", "visible");
           $(".pinch").style("visibility", "hidden");
-          window.setTimeout(function(){window.location="event-over.html"},2000);
+          Common.createNew().goto();
         });
       };
       return eventTouch;
     }
   };
 
+  var EventScent={
+    createNew:function(){
+      var eventScent={};
+      eventScent.init=function(){
+        $(".heart-zone").on("touchstart", function(e){
+          if(e.touches.length===2){
+            $(this).addClass("kissed");
+            Common.createNew().goto();
+          }
+        });
+      };
+      return eventScent;
+    }
+  };
+
+  var EventRev={
+    createNew:function(){
+      var eventRev={}, str="I am fall in love", s=0, t;
+      eventRev.init=function(){
+        $(".text-input").on("keydown",function(){
+          if(s===0){
+            t=window.setInterval(function(){s++;}, 10);
+          }
+        }).on("keyup", function(){
+          if(s>=700){
+            window.clearInterval(t);
+          }
+          if(s<=700 && this.value===str){
+            window.clearInterval(t);
+            $("#event-revitalised-1>img").style("visibility","visible");
+          }
+        });
+
+        $("#event-revitalised-1>img").on("tap", function(){
+          window.location="event-over.html";
+        });
+      };
+      return eventRev;
+    }
+  };
+
   var Init=function(){
-    $("section").on("touchmove", function(e){e.preventDefault();});
-    Seven.createNew().init();
+    $("section:not(#event-beauty-1)").on("touchmove", function(e){e.preventDefault();});
+    var f=[Seven, EventDeep, EventGlow, EventBeauty, EventTouch, EventScent, EventRev], i;
+    for(i in f){
+      f[i].createNew().init();
+    }
+    /*Seven.createNew().init();
     EventDeep.createNew().init();
     EventGlow.createNew().init();
     EventBeauty.createNew().init();
     EventTouch.createNew().init();
+    EventScent.createNew().init();
+    EventRev.createNew().init();*/
   }();
 }(window.Quo);

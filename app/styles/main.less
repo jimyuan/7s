@@ -13,6 +13,7 @@
 // @import "../bower_components/bootstrap/less/grid.less";
 // @import "../bower_components/bootstrap/less/tables.less";
 @import "../bower_components/bootstrap/less/forms.less";
+@import "../bower_components/bootstrap/less/progress-bars.less";
 // @import "../bower_components/bootstrap/less/buttons.less";
 
 //Site CSS
@@ -486,7 +487,7 @@ section{
   }
   &#event-beauty-1{
     min-height: 830px/2;
-    background: #037389 url(../images/bg-beautiful.jpg) no-repeat 0 bottom;
+    background: #037389 url(../images/bg-beautiful.jpg) no-repeat 50% bottom;
     background-size: contain;
     &>.beauty-content{
       width:544px/2;
@@ -503,9 +504,36 @@ section{
       .size(380px/2, 344px/2);
       .center-block;
       .box-sizing(border-box);
+      position:relative;
       border:5px solid white;
       background-color: darken(#fafafa, 10%);
       margin-bottom: 10px;
+      &>#text{
+        .center-block;
+        display: block;
+        color: #666;
+        text-align: center;
+        color:ligten(gray, 20%);
+        line-height: 344px/2-10;
+        height:344px/2-10;
+        background:no-repeat center center;
+        background-size: cover;
+      }
+      &>#file{
+        .size(380px/2-10, 344px/2-10);
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+      }
+    }
+    &>.progress{
+      position:absolute;
+      @w: 380px/2-20;
+      width:@w; height:10px;
+      left:50%; margin-left: -@w/2;
+      margin-top:-50px;
     }
     &>img{
       .center-block;
@@ -598,24 +626,27 @@ section{
       }
     }
     &>.text-mark{
+      .center-block;
       .box-sizing(border-box);
       width:440px/2;
       line-height: 68px/2;
-      position: absolute;
-      bottom:250px/2; left:50%;
-      margin-left: -440px/4;
+      // position: absolute;
+      // bottom:250px/2-50; left:50%;
+      // margin-left: -440px/4;
       background: white;
       padding:0 14px;
       font-size: 16px;
       color:#149aa7;
     }
     &>.text-input{
+      .center-block;
       width:440px/2;
       line-height: 68px/2;
       height:68px/2;
-      position: absolute;
-      bottom:250px/2; left:50%;
-      margin-left: -440px/4;
+      margin-top:-68px/2;
+      // position: absolute;
+      // bottom:250px/2-50; left:50%;
+      // margin-left: -440px/4;
       padding:0 14px;
       opacity: .4;
       font-size: 16px;
@@ -625,7 +656,7 @@ section{
     &>img{
       .center-block;
       width:440px/2;
-      margin-top: 60px;
+      margin-top: 10px;
       visibility: hidden;
     }
   }

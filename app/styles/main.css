@@ -1074,6 +1074,50 @@ section.slideOut {
 section.slideIn {
   left: 0;
 }
+section#home-page {
+  background: #037489 url(../images/bg-home.jpg) no-repeat center bottom;
+  background-size: contain;
+  min-height: 415px;
+}
+section#home-page > .action-bar > a {
+  width: 110px;
+  height: 35px;
+  background: url(../images/icon-play.png) no-repeat 0 center;
+  background-size: 12%;
+}
+section#home-page > .home-slogen {
+  width: 189px;
+  height: 112px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background: url(../images/home-slogen.png) no-repeat;
+  background-size: contain;
+  margin-top: 38px;
+}
+section#home-page > .video-area {
+  width: 214px;
+  height: 138px;
+  position: absolute;
+  top: 190px;
+  left: 50%;
+  margin-left: -107px;
+  box-shadow: 6px 6px 6px #258f96;
+}
+section#home-page > .video-area > video {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+section#home-page > .home-girl {
+  width: 117px;
+  height: 203px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background: url(../images/home-girl.png) no-repeat;
+  background-size: contain;
+}
 section#seven-love {
   background: #037489 url(../images/bg-seven.jpg) no-repeat center bottom;
   background-size: contain;
@@ -1687,5 +1731,184 @@ section#event-revitalised-1 > img {
   width: 220px;
   margin-top: 10px;
   visibility: hidden;
+}
+section#pro-water {
+  background: #067f92 url(../images/bg-water.jpg) no-repeat center 0;
+  background-size: contain;
+  min-height: 415px;
+}
+section#pro-water > .action-bar {
+  height: 62px;
+  background: url(../images/water-slogen.png) no-repeat;
+  background-size: contain;
+}
+section#pro-water > ul > li {
+  position: absolute;
+  text-indent: -10000px;
+  width: 33px;
+  height: 33px;
+  background: url(../images/icon-desc.png) no-repeat;
+  background-size: contain;
+}
+section#pro-water > ul > li > a {
+  display: block;
+  height: 33px;
+}
+section#pro-water > ul > li:nth-child(1) {
+  top: 265px;
+  left: 20px;
+}
+section#pro-water > ul > li:nth-child(2) {
+  top: 217px;
+  left: 136px;
+}
+section#pro-water > ul > li:nth-child(3) {
+  top: 335px;
+  left: 180px;
+}
+section#pro-water > ul > li:nth-child(4) {
+  top: 209px;
+  left: 243px;
+}
+section#network-page {
+  background: #067f92 url(../images/bg-network.jpg) no-repeat center bottom;
+  background-size: contain;
+  min-height: 415px;
+}
+section#network-page > .tri-list {
+  width: 100%;
+  height: 71px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #078093;
+}
+section#network-page > .tri-list > ul {
+  padding-top: 14px;
+  padding-left: 32px;
+  font-size: 12px;
+  color: white;
+}
+section#network-page > .tri-list > a {
+  width: 133px;
+  height: 36px;
+  display: block;
+  float: right;
+  background: url(../images/btn-buy.png) no-repeat;
+  background-size: contain;
+  text-indent: -1000px;
+  margin-top: -54px;
+  margin-right: 19px;
+}
+section.aqua-page {
+  background: #067f92 url(../images/bg-aqua.jpg) no-repeat center bottom;
+  background-size: contain;
+  min-height: 415px;
+}
+section.aqua-page > .action-bar > a {
+  width: 68px;
+  height: 35px;
+  margin-left: 22px;
+  background: url(../images/icon-return.png) no-repeat 0 center;
+  background-size: 14px;
+}
+section.aqua-page > #pro-toning-lotion {
+  background: url(../images/pro-toning-lotion.png) no-repeat;
+  background-size: contain;
+  position: absolute;
+  width: 100%;
+  height: 213px;
+  top: 107px;
+  left: 0;
+}
+section.aqua-page > #pro-nuit {
+  background: url(../images/pro-nuit.png) no-repeat;
+  background-size: contain;
+  position: absolute;
+  width: 100%;
+  height: 202px;
+  top: 115px;
+  left: 0;
+}
+section.aqua-page > #pro-gel {
+  background: url(../images/pro-gel.png) no-repeat;
+  background-size: contain;
+  position: absolute;
+  width: 100%;
+  height: 152px;
+  top: 135px;
+  left: 0;
+}
+section.aqua-page > #pro-deep-serum {
+  background: url(../images/pro-deep-serum.png) no-repeat;
+  background-size: contain;
+  position: absolute;
+  width: 100%;
+  height: 202px;
+  top: 111px;
+  left: 0;
+}
+section.aqua-page > .leadway {
+  width: 100%;
+  height: 36px;
+  position: absolute;
+  bottom: 48px;
+  left: 0;
+  z-index: 100;
+}
+section.aqua-page > .leadway > a {
+  display: block;
+  width: 133px;
+  height: 36px;
+  text-indent: -10000px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+section.aqua-page > .leadway > a:first-child {
+  float: left;
+  margin-left: 25px;
+  background-image: url(../images/btn-buy.png);
+}
+section.aqua-page > .leadway > a:last-child {
+  float: right;
+  margin-right: 25px;
+  background-image: url(../images/btn-desc.png);
+}
+section.aqua-page > .aqua-desc {
+  width: 100%;
+  height: 99px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  background: #0fbfca;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 90;
+}
+section.aqua-page > .aqua-desc.fadeIn {
+  z-index: 100;
+  opacity: 100;
+  filter: alpha(opacity=10000);
+}
+section.aqua-page > .aqua-desc > .close {
+  width: 26px;
+  height: 26px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -13px;
+  background: url(../images/icon-close.png);
+  background-size: contain;
+}
+section.aqua-page > .aqua-desc > .aqua-text {
+  width: 260px;
+  color: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 12px;
+  padding-top: 12px;
 }
 /*# sourceMappingURL=/styles/main.css.map */

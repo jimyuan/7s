@@ -32,6 +32,18 @@
     }
   };
 
+  var Home={
+    createNew:function(){
+      var home={};
+      home.init=function(){
+        $(".video-area").on("tap", "video", function(){
+          this.play();
+        })
+      }
+      return home;
+    }
+  }
+
   var Seven={
     createNew:function(){
       var seven={}, c=Common.createNew();
@@ -228,9 +240,25 @@
     }
   };
 
+  var AquaSource={
+    createNew:function(){
+      var aquasource={};
+      aquasource.init=function(){
+        $(".leadway>a:last-child").on("tap", function(e){
+          e.preventDefault();
+          $(".aqua-desc").addClass("fadeIn");
+        }).on("click", function(e){e.preventDefault();});
+        $(".close").on("tap", function(){
+          $(".aqua-desc").removeClass("fadeIn");
+        });
+      };
+      return aquasource;
+    }
+  };
+
   var Init=function(){
-    $("section:not(#event-beauty-1)").on("touchmove", function(e){e.preventDefault();});
-    var f=[Seven, EventDeep, EventGlow, EventBeauty, EventTouch, EventScent, EventRev], i;
+    $("section:not(.scroll-page)").on("touchmove", function(e){e.preventDefault();});
+    var f=[Home, Seven, EventDeep, EventGlow, EventBeauty, EventTouch, EventScent, EventRev, AquaSource], i;
     for(i in f){
       f[i].createNew().init();
     }

@@ -14,18 +14,31 @@
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
 </head>
-<body class="seven-page">
+<body>
   <nav class="navbar" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
     <a class="navbar-brand" href="./">Brand</a>
     <ul class="nav-content list-unstyled">
       <li class="active"><a href="index.html">首页</a></li>
       <li><a href="7-love.html">七秒热恋</a></li>
-      <li><a href="#pro-water">水润活泉</a></li>
-      <li><a href="#pro-network">网络尊享</a></li>
+      <li><a href="pro-water.html">水润活泉</a></li>
+      <li><a href="pro-network.html">网络尊享</a></li>
     </ul>
   </nav>
-
+  <section id="home-page" class="scroll-page">
+    <div class="action-bar">
+      <a href="#" class="review-video">回顾预告视频</a>
+    </div>
+    <div class="home-slogen"></div>
+    <div class="video-area">
+      <video poster="images/video-poster.jpg" preload>
+        <source src="movie.ogg" type="video/ogg">
+        <source src="movie.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="home-girl"></div>
+  </section>
 
   <!-- build:js scripts/main.js -->
   <script src="bower_components/quojs/quo.js"></script>

@@ -175,8 +175,10 @@ section{
       position: absolute;
       top:380px/2; left:50%;
       margin-left: -428px/4;
-      box-shadow: 6px 6px 6px #258f96;
-      &>video{
+      box-shadow: 0 0 12px 6px #258f96;
+      background:url(../images/video-poster.jpg);
+      background-size:contain;
+      &>video, &>iframe{
         .square(100%);
         background-color: black;
       }

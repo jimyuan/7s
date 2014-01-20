@@ -28,6 +28,18 @@
       common.passedEvent=function(item, page){
         localStorage.setItem(item, page);
       };
+
+      common.GAEvent=function(act, tag, uri){
+        var redirect=uri || "";
+        _gaq.push(['_trackEvent', 'm7', act, tag]);
+        if(redirect!==""){
+          setTimeout(function(){
+            window.location.href = redirect;
+          },100);          
+        }
+        console.log("_trackEvent", "m7", act, tag, uri);
+      };
+
       return common;
     }
   };
@@ -36,13 +48,13 @@
     createNew:function(){
       var home={};
       home.init=function(){
-        $(".video-area").on("tap", "video", function(){
-          this.play();
-        })
-      }
+        $(".video-area").on("tap", function(){
+          $(this).children("iframe").style("display", "block");
+        });
+      };
       return home;
     }
-  }
+  };
 
   var Seven={
     createNew:function(){
@@ -256,9 +268,84 @@
     }
   };
 
+  var GA={
+    createNew:function(){
+      var ga={}, c=Common.createNew();
+      ga.init=function(){
+        // virtualPage();
+        virtualEvent();
+      };
+
+      var virtualEvent=function(){
+        $(".review-video").on("click", function(e){
+          e.preventDefault();
+          c.GAEvent("click", "回顾预告视频", $(this).attr("href"));
+        });
+        $(".video-area").on("tap", function(e){
+          e.preventDefault();
+          c.GAEvent("click", "7秒初爱视频播放");
+        });
+        $("#seven-love>a").on("tap", function(){
+          c.GAEvent("tap", "进入体验");
+        });
+        $("#seven-love>action-bar>a").on("tap", function(){
+          c.GAEvent("tap","活动说明");
+        });
+        $("#event-list>action-bar>a").on("tap", function(){
+          c.GAEvent("tap","返回7秒热恋页面");
+        });
+        $("#event-list ul a").on("click", function(e){
+          // event list track
+          e.preventDefault();
+          c.GAEvent("click", "Event-"+$(this).children("strong").text(), $(this).attr("href"));
+        });
+        $(".more-events").on("click", function(e){
+          e.preventDefault();
+          c.GAEvent("click", "更多爱的体验", $(this).attr("href"));
+        });
+        $(".btn-share").on("click", function(e){
+          e.preventDefault();
+          c.GAEvent("click", "分享体验", $(this).attr("href"));
+        });
+        $(".btn-mall").on("click", function(e){
+          e.preventDefault();
+          c.GAEvent("click", "官方商城", $(this).attr("href"));
+        });
+        $(".btn-apply").on("click", function(e){
+          e.preventDefault();
+          c.GAEvent("click", "申领试用", $(this).attr("href"));
+        });
+        $(".apply-submit").on("tap", function(){
+          c.GAEvent("tap", "提交申领");
+        });   
+        $(".tri-list>a").on("click", function(e){
+          e.preventDefault();
+          c.GAEvent("click", "保湿礼盒购买", $(this).attr("href"));
+        });
+        $("#pro-toning-lotion + .leadway>a:first-child").on("click", function(e){
+          e.preventDefault();
+          c.GAEvent("click", "活泉润透爽肤水购买", $(this).attr("href"));
+        });
+        $("#pro-nuit + .leadway>a:first-child").on("click", function(e){
+          e.preventDefault();
+          c.GAEvent("click", "睡美人晶莹霜购买", $(this).attr("href"));
+        });
+        $("#pro-gel + .leadway>a:first-child").on("click", function(e){
+          e.preventDefault();
+          c.GAEvent("click", "活泉润透水份露购买", $(this).attr("href"));
+        });
+        $("#pro-deep-serum + .leadway>a:first-child").on("click", function(e){
+          e.preventDefault();
+          c.GAEvent("click", "绿活泉精华购买", $(this).attr("href"));
+        });        
+      };
+      return ga;
+    }
+  };
+
   var Init=function(){
     $("section:not(.scroll-page)").on("touchmove", function(e){e.preventDefault();});
-    var f=[Home, Seven, EventDeep, EventGlow, EventBeauty, EventTouch, EventScent, EventRev, AquaSource], i;
+    var f=[Home, Seven, EventDeep, EventGlow, EventBeauty, EventTouch, EventScent, EventRev, AquaSource, GA], i;
     for(i in f){
       f[i].createNew().init();
     }

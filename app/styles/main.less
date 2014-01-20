@@ -373,13 +373,13 @@ section{
     }
   }
   &#event-over{
-    background:#037489 url(../images/bg-over.jpg) no-repeat center bottom;
+    background:#067f92 url(../images/bg-over.jpg) no-repeat center bottom;
     background-size: 100%;
     // height:830px/2;
     div.sm>a{
       .smbtn;
       position: absolute;
-      bottom:50px; left:50%;
+      bottom:20px; left:50%;
       &.btn-share{
         background-image:url(../images/btn-share.png);
         margin-left: -266px/2;                                
@@ -620,6 +620,11 @@ section{
         background-size: contain;
         .animation(pinch-right .8s linear infinite alternate)
       }
+    }
+    &>.pinch-zone{
+      .size(100%, 80px);
+      position: absolute;
+      bottom:80px;
     }
   }
   &#event-scent-1{

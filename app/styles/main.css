@@ -1320,7 +1320,7 @@ section#event-deep-3 > .wish-tips {
   color: #097473;
 }
 section#event-over {
-  background: #037489 url(../images/bg-over.jpg) no-repeat center bottom;
+  background: #067f92 url(../images/bg-over.jpg) no-repeat center bottom;
   background-size: 100%;
 }
 section#event-over div.sm > a {
@@ -1330,7 +1330,7 @@ section#event-over div.sm > a {
   background-size: contain;
   text-indent: -10000px;
   position: absolute;
-  bottom: 50px;
+  bottom: 20px;
   left: 50%;
 }
 section#event-over div.sm > a.btn-share {
@@ -1650,6 +1650,12 @@ section#event-touch-1 > .pinch > .pinchRight {
   background-size: contain;
   -webkit-animation: pinch-right 0.8s linear infinite alternate;
   animation: pinch-right 0.8s linear infinite alternate;
+}
+section#event-touch-1 > .pinch-zone {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  bottom: 80px;
 }
 section#event-scent-1 {
   background: #02768a url(../images/bg-scent.jpg) no-repeat center bottom;

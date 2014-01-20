@@ -60,15 +60,14 @@
     createNew:function(){
       var seven={}, c=Common.createNew();
       seven.init=function(){
-        var $o=$(".seven-page .action-bar>a, #seven-love>a");
+        var $o=$(".seven-page .action-bar>a");
         c.transfer($o);
-        $("#seven-love>a").on("click", function(){return false;});
         this.listHeight();
         this.markEvents();
       };
       seven.listHeight=function(){
         var h=window.innerHeight-$("nav.navbar").height()-$(".action-bar").height();
-        $(".seven-page .event-link ul").style("height",h+"px").children().style("height",h/3+"px");
+        $("#event-list .event-link ul").style("height",h+"px").children().style("height",h/3+"px");
       };
       seven.markEvents=function(){
         for(var i=1; i<=6; i++){
@@ -93,8 +92,8 @@
             $(".wish-content").val("");
           });
           //确定按钮
-          $("#event-deep-2>div.action-bar>a:last-child").on("tap", function(){
-            if($(".wish-content").val()==="") {return false;}
+          $(".submit-wish").on("tap", function(){
+            if($(".wish-content").val()=="") {return false;}
             else{
               localStorage.setItem("wish", $(".wish-content").val());
               window.location="event-deep2.html";
@@ -198,7 +197,7 @@
     createNew:function(){
       var eventTouch={};
       eventTouch.init=function(){
-        $(".pinch").on("pinchIn", function(){
+        $(".pinch-zone").on("pinchIn", function(){
           $(".big-glow").style("visibility", "visible");
           $(".pinch").style("visibility", "hidden");
           Common.createNew().passedEvent("event04","event-touch.html");
@@ -284,9 +283,6 @@
         $(".video-area").on("tap", function(e){
           e.preventDefault();
           c.GAEvent("click", "7秒初爱视频播放");
-        });
-        $("#seven-love>a").on("tap", function(){
-          c.GAEvent("tap", "进入体验");
         });
         $("#seven-love>action-bar>a").on("tap", function(){
           c.GAEvent("tap","活动说明");

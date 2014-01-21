@@ -31,7 +31,7 @@
 
       common.goto=function(EVENT){ //event完毕，跳转到分享页面
         var wait=arguments[1] || 2000;
-        localStorage.setItem("text", this.shareText[EVENT])
+        localStorage.setItem("text", this.shareText[EVENT]);
         window.setTimeout(function(){window.location="event-over.html";},wait);
       };
 
@@ -86,13 +86,13 @@
                   window.location = "login.aspx";
                 }
                 else if(a.result==="success"){
-                  window.location = "share.html"
-                }
+                  window.location = "share.html";
+                } 
               },
               error: function() {
-                  console.log("failed")
+                console.log("failed");
               }
-          })
+          });
         });
       };
       seven.listHeight=function(){

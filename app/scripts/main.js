@@ -2,6 +2,14 @@
   var Common={
     createNew:function(){
       var common={};
+      common.shareText={
+        DEEP: "#7秒爱上绿活泉#想知道我心中爱的愿望吗？开启愿望之门一起来许愿，感受碧欧泉爱的体验。快来和我一起赢取皇牌保湿绿活泉吧！",
+        GLOW: "#7秒爱上绿活泉#爱的滋长需要温暖和阳光，我刚刚参与碧欧泉爱的体验，感受到了暖暖爱意。快来和我一起赢取皇牌保湿绿活泉吧！",
+        BEAUTIFUL: "#7秒爱上绿活泉#大笑是为了证明快乐，苦笑是为了忘却苦涩，而只有微笑是在感受快乐！分享微笑美照，传递浓浓爱意！快来和我一起赢取皇牌保湿绿活泉吧！",
+        TOUCH: "#7秒爱上绿活泉#和TA瞬间的触碰，是否有怦然心动？参与碧欧泉爱的体验，感受那份指尖的悸动！快来和我一起赢取皇牌保湿绿活泉吧！",
+        SCENT: "#7秒爱上绿活泉#在爱的距离中，无论多远，都想向对方传递爱的气息。Kiss手机屏幕，留下爱的印记吧！快来和我一起赢取皇牌保湿绿活泉吧！",
+        REVITALISED: "#7秒爱上绿活泉#打破爱的僵局，有时的确需要勇气，7秒内，成功输入I am fall in love，勇敢说出自己爱的告白吧！快来和我一起赢取皇牌保湿绿活泉吧！"
+      };
       common.transfer=function($o){ //单页场景切换
         var hash=window.location.hash;
         if($(hash).length>0){
@@ -21,8 +29,10 @@
         $o.removeClass("slideOut").addClass("slideIn");
       };
 
-      common.goto=function(){ //event完毕，跳转到分享页面
-        window.setTimeout(function(){window.location="event-over.html";},2000);
+      common.goto=function(EVENT){ //event完毕，跳转到分享页面
+        var wait=arguments[1] || 2000;
+        localStorage.setItem("text", this.shareText[EVENT])
+        window.setTimeout(function(){window.location="event-over.html";},wait);
       };
 
       common.passedEvent=function(item, page){
@@ -64,6 +74,26 @@
         c.transfer($o);
         this.listHeight();
         this.markEvents();
+
+        $(".btn-share").on("click", function(e){
+          e.preventDefault();
+          $.ajax({
+              type: "GET",
+              url: "islogin.ashx",
+              dataType: "json",
+              success: function(a) {
+                if(a.result==="failed"){
+                  window.location = "login.aspx";
+                }
+                else if(a.result==="success"){
+                  window.location = "share.html"
+                }
+              },
+              error: function() {
+                  console.log("failed")
+              }
+          })
+        });
       };
       seven.listHeight=function(){
         var h=window.innerHeight-$("nav.navbar").height()-$(".action-bar").height();
@@ -85,20 +115,21 @@
       var eventDeep={}, c=Common.createNew();
       eventDeep.init=function(){
         if($("#event-deep-1").length>0){
-          var $o=$("#event-deep-1>.wish-make>a, #event-deep-2>.action-bar>a:first-child");
+          var $o=$("#event-deep-1>.wish-make>a");
           c.transfer($o);
 
           $(".event-page .wish-count>span").on("tap", function(){
             $(".wish-content").val("");
           });
           //确定按钮
-          $(".submit-wish").on("tap", function(){
-            if($(".wish-content").val()=="") {return false;}
+          $(".submit-wish").on("click", function(e){
+            e.preventDefault();
+            if($(".wish-content").val()==="") {return false;}
             else{
               localStorage.setItem("wish", $(".wish-content").val());
               window.location="event-deep2.html";
             }
-          }).on("click", function(){return false;});
+          });
         }
 
         if($("#event-deep-3").length>0){
@@ -114,20 +145,17 @@
       };
 
       var shake=function(){
-        var c = 0;
+        var s = 0;
         var h = $(".wish-full").height();
         $(window).on("shake", function(e){
           e.preventDefault();
-          // if($("#event-deep-2")) {
-            $("#event-deep-2").remove();
-          // }
-          if(c<7){
-            $(".wish-full").style("background-position", "0 -"+c*h+"px");
-            c++;
+          if(s<7){
+            $(".wish-full").style("background-position", "0 -"+s*h+"px");
+            s++;
           }
-          if(c===7){
-            Common.createNew().passedEvent("event01","event-deep.html");
-            Common.createNew().goto();
+          if(s===7){
+            c.passedEvent("event01","event-deep.html");
+            c.goto("DEEP");
           }
         });
       };
@@ -148,7 +176,7 @@
           if(tapCount===7){
             $(".radiance").style("visibility", "visible");
             Common.createNew().passedEvent("event02", "event-glow.html");
-            Common.createNew().goto();
+            Common.createNew().goto("GLOW");
           }
         });
       };
@@ -201,7 +229,7 @@
           $(".big-glow").style("visibility", "visible");
           $(".pinch").style("visibility", "hidden");
           Common.createNew().passedEvent("event04","event-touch.html");
-          Common.createNew().goto();
+          Common.createNew().goto("TOUCH");
         });
       };
       return eventTouch;
@@ -216,7 +244,7 @@
           if(e.touches.length===2){
             $(this).addClass("kissed");
             Common.createNew().passedEvent("event05","event-scent.html");
-            Common.createNew().goto();
+            Common.createNew().goto("SCENT");
           }
         });
       };
@@ -227,6 +255,7 @@
   var EventRev={
     createNew:function(){
       var eventRev={}, str="I am fall in love", s=0, t;
+      var c=Common.createNew();
       eventRev.init=function(){
         $(".text-input").on("keydown",function(){
           if(s===0){
@@ -243,8 +272,8 @@
         });
 
         $("#event-revitalised-1>img").on("tap", function(){
-          Common.createNew().passedEvent("event06","event-revitalised.html");
-          window.location="event-over.html";
+          c.passedEvent("event06","event-revitalised.html");
+          c.goto("REVITALISED", 10);
         });
       };
       return eventRev;

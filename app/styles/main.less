@@ -375,7 +375,24 @@ section{
   &#event-over{
     background:#067f92 url(../images/bg-over.jpg) no-repeat center bottom;
     background-size: 100%;
-    // height:830px/2;
+    min-height:830px/2;
+    &>.aqua-slogen{
+      color:white;
+      text-align: center;
+      &>p{
+        margin:0;
+      }
+      &>p:first-child{
+        padding-top: 20px;
+        font-size:16px;
+      }
+      &>p:nth-child(2){
+        font-size: 14px;
+      }
+      &>p:last-child{
+        font-size: 18px;
+      }
+    }
     div.sm>a{
       .smbtn;
       position: absolute;
@@ -702,7 +719,7 @@ section{
     }
   }
   &#pro-water{
-    background:#067f92 url(../images/bg-water.jpg) no-repeat center 0;
+    background:#067f92 url(../images/bg-water.jpg) no-repeat center bottom;
     background-size: contain;
     min-height: 830px/2;
     &>.action-bar{
@@ -721,25 +738,25 @@ section{
         height: 66px/2;
       }
       &:nth-child(1){
-        top:530px/2;
+        bottom:120px;
         left:40px/2;
       }
       &:nth-child(2){
-        top:434px/2;
+        bottom:166px;
         left:272px/2;
       }
       &:nth-child(3){
-        top:670px/2;
+        bottom:48px;
         left:360px/2;
       }
       &:nth-child(4){
-        top:418px/2;
+        bottom:178px;
         left:486px/2;
       }
     }
   }
   &#network-page{
-    background:#067f92 url(../images/bg-network.jpg) no-repeat center bottom;
+    background:#067f92 url(../images/bg-network.jpg) no-repeat center 0;
     background-size: contain;
     min-height: 830px/2;
     &>.tri-list{

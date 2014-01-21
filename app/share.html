@@ -24,39 +24,38 @@
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
-  </script>  
+  </script>
 </head>
-<body class="event-page">
-  <nav class="navbar" role="navigation">
-    <a class="navbar-brand" href="./">Brand</a>
-    <ul class="nav-content list-unstyled">
-      <li><a href="index.html">首页</a></li>
-      <li class="active"><a href="7-love.html">七秒热恋</a></li>
-      <li><a href="pro-water.html">水润活泉</a></li>
-      <li><a href="pro-network.html">网络尊享</a></li>
-    </ul>
-  </nav>
-
-  <section id="event-over" class="scroll-page">
-    <div class="action-bar">
-      <a href="event-list.html" class="more-events">更多爱的体验</a>
-    </div>
-    <div class="aqua-slogen">
-      <p>AQUASOURCE GEL</p>
-      <p>活泉润透水份露</p>
-      <p>镇牌之宝"绿活泉" </p>
-    </div>
-    <div class="sm">
-      <a href="#" class="btn-share">分享体验</a>
-      <a href="http://m.biotherm.com.cn/biotherm/productdetail.html?id=345&amp;catalog=11&amp;link
-=wcatalog&amp;utm_source=m7&amp;utm_media=minisite&amp;utm_term=event-over&amp;utm_content=go-mall&amp;utm_campain=loving-aquasource-with-7s?" class="btn-mall">官方商城</a>
-    </div>
-  </section>
-
+<body>
+  
   <!-- build:js scripts/main.js -->
   <script src="bower_components/quojs/quo.js"></script>
   <script src="bower_components/shake.js/shake.js"></script>
   <script src="scripts/main.js"></script>
   <!-- endbuild -->
+
+  <script>
+    var c = localStorage.getItem("text");
+    var p = localStorage.getItem("pic") || "";
+    $$.ajax({
+      type: "GET",
+      url : "share.aspx?content="+encodeURI(c)+"&pic="+encodeURI(p),
+      // dataType:"json",
+      // data:{content:c, pic:p},
+      success:function(r){
+        console.log(r);
+        if(r.result==="failed"){
+          alert("分享失败")
+        }
+        else if(r.result==="success"){
+          window.location="event-share-ok.html";
+        }
+      },
+      error:function(){
+        console.log("error");
+        window.location="event-share-ok.html"
+      }
+    });
+  </script>
 </body>
 </html>

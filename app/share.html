@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+  <title>7秒爱上绿活泉</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="cleartype" content="on">
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-19617523-1']);
+    _gaq.push(['_setDomainName', 'biotherm.com.cn']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+<body>
+  <!-- build:js scripts/main.js -->
+  <script src="bower_components/quojs/quo.js"></script>
+  <script src="bower_components/shake.js/shake.js"></script>
+  <script src="scripts/main.js"></script>
+  <!-- endbuild -->
+
+  <script>
+    var c = localStorage.getItem("text");
+    var p = localStorage.getItem("pic") || "";
+    console.log(c, p);
+    $$.ajax({
+      type: "GET",
+      url : "share.aspx",
+      dataType:"json",
+      data:{content:c, pic:p},
+      success:function(r){
+        if(r.result==="failed"){
+          alert("分享失败")
+        }
+        else if(r.result==="success"){
+          window.location="event-share-ok.html";
+        }
+      }
+    });
+  </script>
+</body>
+</html>

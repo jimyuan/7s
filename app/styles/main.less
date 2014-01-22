@@ -562,8 +562,23 @@ section{
         margin-top: 38px/2;
       }
     }
+    &>.rotate-pic{
+      position: absolute;
+      width:100%;
+      top:255px;
+      &>img{
+        .square(24px);
+      }
+      &>img:first-child{
+        margin-left:20px;
+      }
+      &>img:last-child{
+        float:right;
+        margin-right: 20px;
+      }
+    }
     &>.upload-area{
-      .size(380px/2, 344px/2);
+      .square(380px/2);
       .center-block;
       .box-sizing(border-box);
       position:relative;
@@ -577,9 +592,10 @@ section{
         text-align: center;
         color:ligten(gray, 20%);
         line-height: 344px/2-10;
-        height:344px/2-10;
+        height:380px/2-10;
         background:no-repeat center center;
         background-size: cover;
+        .transition(all .3s linear);
       }
       &>#file{
         .size(380px/2-10, 344px/2-10);

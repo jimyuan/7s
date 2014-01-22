@@ -35,24 +35,22 @@
   <!-- endbuild -->
 
   <script>
-    var c = localStorage.getItem("text")+" http://t.cn/8FtIAxX", p;
-    if(localStorage.getItem("type")==="BEAUTIFUL"){
-      p = localStorage.getItem("pic") || "";
-    }
-    else{
-      p = "/images/weibo-pic.jpg";
-    }    
-    var data={content:c, pic:p};
-    var url="share.ashx";
+      
+    function fBrowserRedirect(){  
+      var ua      = navigator.userAgent.toLowerCase();  
+      var Android = ua.match(/android/i) == "android";  
+      var iPad    = ua.match(/ipad/i) == "ipad";    
+      var iPhone  = ua.match(/iphone/i) == "iphone";
 
-    $$.post(url, data, function(res){
-      if(res.result==="success"){
-        window.location="event-share-ok.html";
+      if(Android || iPad || iPhone){
+        window.location="/";
       }
       else{
-        alert("分享失败");
+        window.location="http://7.biotherm.com.cn/";
       }
-    }, "json");
+    }
+    fBrowserRedirect();
+  
   </script>
 </body>
 </html>

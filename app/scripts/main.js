@@ -73,8 +73,10 @@
       seven.init=function(){
         var $o=$(".seven-page .action-bar>a");
         c.transfer($o);
-        this.listHeight();
         this.markEvents();
+        if($("nav.navbar").length>0 && $(".action-bar").length>0){
+          this.listHeight();
+        }
 
         //分享按钮
         $(".btn-share").on("click", function(e){
@@ -217,6 +219,7 @@
     createNew:function(){
       var eventBeauty={};
       eventBeauty.init=function(){
+        var r=0;
         $("#file").on("change", function(e){
           $(".progress").style("display", "block");//.children().style("width", "20%");
           if (window.File && window.FileReader) {
@@ -235,12 +238,14 @@
               };
               reader.onload = function(e){
                 var img=e.target.result;
+                $(".rotate-pic").style("display", "block");
                 $("#text").html("").style("backgroundImage", "url('"+img+"')");
                 $(".progress").style("display", "none");
                 $(".picUpload").on("click", function(){
+                  $(".progress").style("display", "block");
                   $.post("upload_stream.ashx",{image:img}, function(r){
+                    $(".progress").style("display", "none");
                     if(r.result==="success"){
-                      console.log(r.jsonResponse);
                       alert("上传成功");
                       Common.createNew().passedEvent("event03", "event-beautiful.html");
                       localStorage.setItem("pic", r.jsonResponse);
@@ -253,6 +258,14 @@
           }
         });
 
+        $(".rotate-pic>img:first-child").on("tap", function(){
+          r-=90;
+          $("#text").style("-webkit-transform", "rotate("+r+"deg)");
+        });
+        $(".rotate-pic>img:last-child").on("tap", function(){
+          r+=90;
+          $("#text").style("-webkit-transform", "rotate("+r+"deg)");
+        });
       };
       return eventBeauty;
     }

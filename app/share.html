@@ -27,10 +27,7 @@
   </script>
 </head>
 <body>
-<<<<<<< HEAD
-=======
-  
->>>>>>> 733ef35f2bec211bf68ab9ba31fb75a4b2ed605d
+
   <!-- build:js scripts/main.js -->
   <script src="bower_components/quojs/quo.js"></script>
   <script src="bower_components/shake.js/shake.js"></script>
@@ -38,27 +35,24 @@
   <!-- endbuild -->
 
   <script>
-    var c = localStorage.getItem("text");
-    var p = localStorage.getItem("pic") || "";
-    $$.ajax({
-      type: "GET",
-      url : "share.aspx?content="+encodeURI(c)+"&pic="+encodeURI(p),
-      // dataType:"json",
-      // data:{content:c, pic:p},
-      success:function(r){
-        console.log(r);
-        if(r.result==="failed"){
-          alert("分享失败")
-        }
-        else if(r.result==="success"){
-          window.location="event-share-ok.html";
-        }
-      },
-      error:function(){
-        console.log("error");
-        window.location="event-share-ok.html"
+    var c = localStorage.getItem("text")+" http://t.cn/8F5uC8O", p;
+    if(localStorage.getItem("type")==="BEAUTIFUL"){
+      p = localStorage.getItem("pic") || "";
+    }
+    else{
+      p = "";
+    }    
+    var data={content:c, pic:p};
+    var url="share.ashx";
+
+    $$.post(url, data, function(res){
+      if(res.result==="success"){
+        window.location="event-share-ok.html";
       }
-    });
+      else{
+        alert("分享失败");
+      }
+    }, "json");
   </script>
 </body>
 </html>

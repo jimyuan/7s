@@ -956,6 +956,9 @@ a:active,
 a:hover {
   text-decoration: none;
 }
+input:invalid {
+  background: white;
+}
 /* insite mixin define start*/
 @-webkit-keyframes pinch-left {
   to {
@@ -1431,6 +1434,9 @@ section#event-apply-form > .apply-form > form > .form-group > div {
 section#event-apply-form > .apply-form > form > .form-group > div > input {
   border-radius: 0;
   border-width: 0;
+  /*&:invaild{
+              border:1px solid red;
+            }*/
 }
 section#event-apply-form > .apply-form > form > .form-group > div > .apply-submit {
   width: 133px;
@@ -1766,8 +1772,8 @@ section#pro-water {
 }
 section#pro-water > .action-bar {
   height: 62px;
-  background: url(../images/water-slogen.png) no-repeat;
-  background-size: contain;
+  background: rgba(9, 103, 117, 0.8) url(../images/water-slogen.png) no-repeat center;
+  background-size: 50%;
 }
 section#pro-water > ul > li {
   position: absolute;

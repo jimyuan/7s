@@ -24,6 +24,12 @@ html, body{
 a:active,a:hover{
   text-decoration: none;
 }
+input:invalid{
+  background:white;
+}
+input:valid{
+  // background:@btn-info-bg;
+}
 /* insite mixin define start*/
 //返回按钮 
 .return(){
@@ -464,6 +470,9 @@ section{
           &>input{
             border-radius: 0;
             border-width: 0;
+            /*&:invaild{
+              border:1px solid red;
+            }*/
           }
           &>.apply-submit{
             .smbtn;
@@ -724,8 +733,8 @@ section{
     min-height: 830px/2;
     &>.action-bar{
       height:124px/2;
-      background: url(../images/water-slogen.png) no-repeat;
-      background-size: contain;
+      background:rgba(9,103,117,.8) url(../images/water-slogen.png) no-repeat center;
+      background-size: 50%;
     }
     &>ul>li{
       position: absolute;

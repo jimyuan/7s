@@ -31,6 +31,7 @@
 
       common.goto=function(EVENT){ //event完毕，跳转到分享页面
         var wait=arguments[1] || 2000;
+        localStorage.setItem("type",EVENT);
         localStorage.setItem("text", this.shareText[EVENT]);
         window.setTimeout(function(){window.location="event-over.html";},wait);
       };
@@ -75,6 +76,7 @@
         this.listHeight();
         this.markEvents();
 
+        //分享按钮
         $(".btn-share").on("click", function(e){
           e.preventDefault();
           $.ajax({
@@ -93,6 +95,33 @@
                 console.log("failed");
               }
           });
+        });
+
+        //提交申领
+        $(".apply-submit").on("click", function(e){
+          e.preventDefault();
+          var f=$(this).closest("form");
+          var fullname=$("#fullname").val(), mobile=$("#mobile").val(), email=$("#email").val();
+          var pe=/^\w(\w*\.*-*)*@([\w-]+\.)+\w{2,4}$/;
+          var pm=/^\d{11}$/;
+
+          if(fullname==="" || mobile==="" || email===""){
+            alert("请将表单填写完整");
+            return false;
+          }
+          if(!pe.test(email) || !pm.test(mobile)){
+            alert("请填写正确的格式");
+            return false;
+          }
+          $.post(
+            "apply.ashx",
+            {"name":fullname, "mobile":mobile, "email":email}, 
+            function(e){
+              if(e.result==="success"){
+                alert("提交成功！");
+                window.location="event-list.html";                
+              }
+            }, "json");
         });
       };
       seven.listHeight=function(){
@@ -199,23 +228,31 @@
               reader.onprogress =function(e){
                 if (e.lengthComputable) {
                   var percentLoaded = Math.round((e.loaded / e.total) * 100);
-                  // Increase the progress bar length.
-                  // console.log(percentLoaded);
                   $(".progress-bar").style("width", percentLoaded+"%");
                 }
               };
               reader.onloadstart = function(e) {
-                //初始化进度条
-                // $(".progress").style("display", "block").children().style("width", "0%");
               };
               reader.onload = function(e){
-                // document.getElementById("text").style.backgroundImage="url('"+e.target.result+"')";
-                $("#text").html("").style("backgroundImage", "url('"+e.target.result+"')");
+                var img=e.target.result;
+                $("#text").html("").style("backgroundImage", "url('"+img+"')");
                 $(".progress").style("display", "none");
+                $(".picUpload").on("click", function(){
+                  $.post("upload_stream.ashx",{image:img}, function(r){
+                    if(r.result==="success"){
+                      console.log(r.jsonResponse);
+                      alert("上传成功");
+                      Common.createNew().passedEvent("event03", "event-beautiful.html");
+                      localStorage.setItem("pic", r.jsonResponse);
+                      Common.createNew().goto("BEAUTIFUL",20);
+                    }
+                  }, "json");
+                });
               };
             }
           }
         });
+
       };
       return eventBeauty;
     }

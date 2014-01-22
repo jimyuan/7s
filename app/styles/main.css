@@ -1322,6 +1322,24 @@ section#event-deep-3 > .wish-tips {
 section#event-over {
   background: #067f92 url(../images/bg-over.jpg) no-repeat center bottom;
   background-size: 100%;
+  min-height: 415px;
+}
+section#event-over > .aqua-slogen {
+  color: white;
+  text-align: center;
+}
+section#event-over > .aqua-slogen > p {
+  margin: 0;
+}
+section#event-over > .aqua-slogen > p:first-child {
+  padding-top: 20px;
+  font-size: 16px;
+}
+section#event-over > .aqua-slogen > p:nth-child(2) {
+  font-size: 14px;
+}
+section#event-over > .aqua-slogen > p:last-child {
+  font-size: 18px;
 }
 section#event-over div.sm > a {
   width: 133px;
@@ -1742,7 +1760,7 @@ section#event-revitalised-1 > img {
   visibility: hidden;
 }
 section#pro-water {
-  background: #067f92 url(../images/bg-water.jpg) no-repeat center 0;
+  background: #067f92 url(../images/bg-water.jpg) no-repeat center bottom;
   background-size: contain;
   min-height: 415px;
 }
@@ -1764,23 +1782,23 @@ section#pro-water > ul > li > a {
   height: 33px;
 }
 section#pro-water > ul > li:nth-child(1) {
-  top: 265px;
+  bottom: 120px;
   left: 20px;
 }
 section#pro-water > ul > li:nth-child(2) {
-  top: 217px;
+  bottom: 166px;
   left: 136px;
 }
 section#pro-water > ul > li:nth-child(3) {
-  top: 335px;
+  bottom: 48px;
   left: 180px;
 }
 section#pro-water > ul > li:nth-child(4) {
-  top: 209px;
+  bottom: 178px;
   left: 243px;
 }
 section#network-page {
-  background: #067f92 url(../images/bg-network.jpg) no-repeat center bottom;
+  background: #067f92 url(../images/bg-network.jpg) no-repeat center 0;
   background-size: contain;
   min-height: 415px;
 }

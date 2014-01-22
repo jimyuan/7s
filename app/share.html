@@ -27,6 +27,10 @@
   </script>
 </head>
 <body>
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 733ef35f2bec211bf68ab9ba31fb75a4b2ed605d
   <!-- build:js scripts/main.js -->
   <script src="bower_components/quojs/quo.js"></script>
   <script src="bower_components/shake.js/shake.js"></script>
@@ -36,19 +40,23 @@
   <script>
     var c = localStorage.getItem("text");
     var p = localStorage.getItem("pic") || "";
-    console.log(c, p);
     $$.ajax({
       type: "GET",
-      url : "share.aspx",
-      dataType:"json",
-      data:{content:c, pic:p},
+      url : "share.aspx?content="+encodeURI(c)+"&pic="+encodeURI(p),
+      // dataType:"json",
+      // data:{content:c, pic:p},
       success:function(r){
+        console.log(r);
         if(r.result==="failed"){
           alert("分享失败")
         }
         else if(r.result==="success"){
           window.location="event-share-ok.html";
         }
+      },
+      error:function(){
+        console.log("error");
+        window.location="event-share-ok.html"
       }
     });
   </script>

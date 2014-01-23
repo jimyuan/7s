@@ -956,6 +956,9 @@ a:active,
 a:hover {
   text-decoration: none;
 }
+input:invalid {
+  background: white;
+}
 /* insite mixin define start*/
 @-webkit-keyframes pinch-left {
   to {
@@ -1320,8 +1323,26 @@ section#event-deep-3 > .wish-tips {
   color: #097473;
 }
 section#event-over {
-  background: #037489 url(../images/bg-over.jpg) no-repeat center bottom;
+  background: #067f92 url(../images/bg-over.jpg) no-repeat center bottom;
   background-size: 100%;
+  min-height: 415px;
+}
+section#event-over > .aqua-slogen {
+  color: white;
+  text-align: center;
+}
+section#event-over > .aqua-slogen > p {
+  margin: 0;
+}
+section#event-over > .aqua-slogen > p:first-child {
+  padding-top: 20px;
+  font-size: 16px;
+}
+section#event-over > .aqua-slogen > p:nth-child(2) {
+  font-size: 14px;
+}
+section#event-over > .aqua-slogen > p:last-child {
+  font-size: 18px;
 }
 section#event-over div.sm > a {
   width: 133px;
@@ -1330,7 +1351,7 @@ section#event-over div.sm > a {
   background-size: contain;
   text-indent: -10000px;
   position: absolute;
-  bottom: 50px;
+  bottom: 20px;
   left: 50%;
 }
 section#event-over div.sm > a.btn-share {
@@ -1413,6 +1434,9 @@ section#event-apply-form > .apply-form > form > .form-group > div {
 section#event-apply-form > .apply-form > form > .form-group > div > input {
   border-radius: 0;
   border-width: 0;
+  /*&:invaild{
+              border:1px solid red;
+            }*/
 }
 section#event-apply-form > .apply-form > form > .form-group > div > .apply-submit {
   width: 133px;
@@ -1545,9 +1569,25 @@ section#event-beauty-1 > .beauty-content > p:first-child {
   margin: 0;
   margin-top: 19px;
 }
+section#event-beauty-1 > .rotate-pic {
+  position: absolute;
+  width: 100%;
+  top: 255px;
+}
+section#event-beauty-1 > .rotate-pic > img {
+  width: 24px;
+  height: 24px;
+}
+section#event-beauty-1 > .rotate-pic > img:first-child {
+  margin-left: 20px;
+}
+section#event-beauty-1 > .rotate-pic > img:last-child {
+  float: right;
+  margin-right: 20px;
+}
 section#event-beauty-1 > .upload-area {
   width: 190px;
-  height: 172px;
+  height: 190px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -1567,9 +1607,11 @@ section#event-beauty-1 > .upload-area > #text {
   text-align: center;
   color: ligten(#808080, 20%);
   line-height: 162px;
-  height: 162px;
+  height: 180px;
   background: no-repeat center center;
   background-size: cover;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
 }
 section#event-beauty-1 > .upload-area > #file {
   width: 180px;
@@ -1650,6 +1692,12 @@ section#event-touch-1 > .pinch > .pinchRight {
   background-size: contain;
   -webkit-animation: pinch-right 0.8s linear infinite alternate;
   animation: pinch-right 0.8s linear infinite alternate;
+}
+section#event-touch-1 > .pinch-zone {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  bottom: 80px;
 }
 section#event-scent-1 {
   background: #02768a url(../images/bg-scent.jpg) no-repeat center bottom;
@@ -1736,14 +1784,14 @@ section#event-revitalised-1 > img {
   visibility: hidden;
 }
 section#pro-water {
-  background: #067f92 url(../images/bg-water.jpg) no-repeat center 0;
+  background: #067f92 url(../images/bg-water.jpg) no-repeat center bottom;
   background-size: contain;
   min-height: 415px;
 }
 section#pro-water > .action-bar {
   height: 62px;
-  background: url(../images/water-slogen.png) no-repeat;
-  background-size: contain;
+  background: rgba(9, 103, 117, 0.8) url(../images/water-slogen.png) no-repeat center;
+  background-size: 50%;
 }
 section#pro-water > ul > li {
   position: absolute;
@@ -1758,23 +1806,23 @@ section#pro-water > ul > li > a {
   height: 33px;
 }
 section#pro-water > ul > li:nth-child(1) {
-  top: 265px;
+  bottom: 120px;
   left: 20px;
 }
 section#pro-water > ul > li:nth-child(2) {
-  top: 217px;
+  bottom: 166px;
   left: 136px;
 }
 section#pro-water > ul > li:nth-child(3) {
-  top: 335px;
+  bottom: 48px;
   left: 180px;
 }
 section#pro-water > ul > li:nth-child(4) {
-  top: 209px;
+  bottom: 178px;
   left: 243px;
 }
 section#network-page {
-  background: #067f92 url(../images/bg-network.jpg) no-repeat center bottom;
+  background: #067f92 url(../images/bg-network.jpg) no-repeat center 0;
   background-size: contain;
   min-height: 415px;
 }

@@ -24,44 +24,33 @@
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
-  </script>  
+  </script>
 </head>
-<body class="event-page">
-  <nav class="navbar" role="navigation">
-    <a class="navbar-brand" href="./">Brand</a>
-    <ul class="nav-content list-unstyled">
-      <li><a href="index.html">首页</a></li>
-      <li class="active"><a href="7-love.html">七秒热恋</a></li>
-      <li><a href="pro-water.html">水润活泉</a></li>
-      <li><a href="pro-network.html">网络尊享</a></li>
-    </ul>
-  </nav>
-
-  <div class="wrap">
-    <section id="event-deep-1" class="slideIn">
-      <div class="action-bar">
-        <a href="event-list.html" class="more-events">更多爱的体验</a>
-      </div>
-      <div class="wish-make"><a href="#event-deep-2">立即许愿</a></div>      
-    </section>
-
-    <section id="event-deep-2" class="slideOut">
-      <div class="action-bar">
-        <a href="#event-deep-1">返回</a>
-        <a href="#" class="submit-wish">确定 &gt;</a>
-      </div>
-      <textarea class="wish-content" noresize placeholder="我的爱的愿望是..."></textarea>
-      <div class="wish-count">
-        <span>限30字</span>
-      </div>
-    </section>
-  </div>
-
+<body>
 
   <!-- build:js scripts/main.js -->
   <script src="bower_components/quojs/quo.js"></script>
   <script src="bower_components/shake.js/shake.js"></script>
   <script src="scripts/main.js"></script>
   <!-- endbuild -->
+
+  <script>
+      
+    function fBrowserRedirect(){  
+      var ua      = navigator.userAgent.toLowerCase();  
+      var Android = ua.match(/android/i) == "android";  
+      var iPad    = ua.match(/ipad/i) == "ipad";    
+      var iPhone  = ua.match(/iphone/i) == "iphone";
+
+      if(Android || iPad || iPhone){
+        window.location="/";
+      }
+      else{
+        window.location="http://7.biotherm.com.cn/";
+      }
+    }
+    fBrowserRedirect();
+  
+  </script>
 </body>
 </html>

@@ -24,7 +24,7 @@
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
-  </script>  
+  </script> 
 </head>
 <body class="event-page">
   <nav class="navbar" role="navigation">
@@ -38,7 +38,7 @@
   </nav>
   <section id="event-apply-form">
     <div class="action-bar">
-      <a href="7-love.html#event-list" class="more-events">更多爱的体验</a>
+      <a href="event-list.html" class="more-events">更多爱的体验</a>
     </div>
     <div class="apply-form">
       <p>即日起至2014年2月28日，完成互动，成功提交个人信息，就有机会获得碧欧泉绿活泉3日体验装。中奖信息将通过邮件进行通知。</p>
@@ -46,19 +46,19 @@
         <div class="form-group">
           <label for="fullname" class="control-label">姓名</label>
           <div>
-            <input type="text" name="fullname" id="fullname" class="form-control">
+            <input type="text" name="fullname" id="fullname" class="form-control" required>
           </div>
         </div>
         <div class="form-group">
           <label for="mobile" class="control-label">手机</label>
           <div>
-            <input type="text" name="mobile" id="mobile" class="form-control">
+            <input type="text" name="mobile" id="mobile" maxlength="11" class="form-control" required>
           </div>
         </div>
         <div class="form-group">
           <label for="email" class="control-label">邮箱</label>
           <div>
-            <input type="text" name="email" id="email" class="form-control">
+            <input type="email" name="email" id="email" class="form-control" required pattern="^\w(\w*\.*-*)*@([\w-]+\.)+\w{2,4}$">
           </div>
         </div>
         <div class="form-group">

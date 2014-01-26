@@ -8,7 +8,7 @@
         BEAUTIFUL: "#7秒爱上绿活泉#大笑是为了证明快乐，苦笑是为了忘却苦涩，而只有微笑是在感受快乐！分享微笑美照，传递浓浓爱意！快来和我一起赢取皇牌保湿绿活泉吧！",
         TOUCH: "#7秒爱上绿活泉#和TA瞬间的触碰，是否有怦然心动？参与碧欧泉爱的体验，感受那份指尖的悸动！快来和我一起赢取皇牌保湿绿活泉吧！",
         SCENT: "#7秒爱上绿活泉#在爱的距离中，无论多远，都想向对方传递爱的气息。Kiss手机屏幕，留下爱的印记吧！快来和我一起赢取皇牌保湿绿活泉吧！",
-        REVITALISED: "#7秒爱上绿活泉#打破爱的僵局，有时的确需要勇气，7秒内，成功输入I am fall in love，勇敢说出自己爱的告白吧！快来和我一起赢取皇牌保湿绿活泉吧！"
+        REVITALISED: "#7秒爱上绿活泉#打破爱的僵局，有时的确需要勇气，7秒内，成功输入I fall in love with aqs，勇敢说出自己爱的告白吧！快来和我一起赢取皇牌保湿绿活泉吧！"
       };
       common.transfer=function($o){ //单页场景切换
         var hash=window.location.hash;
@@ -304,22 +304,25 @@
 
   var EventRev={
     createNew:function(){
-      var eventRev={}, str="I am fall in love", s=0, t;
+      var eventRev={}, str="I fall in love with aqs", s=0, t;
       var c=Common.createNew();
       eventRev.init=function(){
-        $(".text-input").on("keydown",function(){
-          if(s===0){
-            t=window.setInterval(function(){s++;}, 10);
+        $(".text-input").on("keyup", function(){
+          if(this.value==="I"){
+            t=window.setInterval(function(){s++;}, 1000);
           }
-        }).on("keyup", function(){
-          if(s>=700){
-            window.clearInterval(t);
-          }
-          if(s<=700 && this.value===str){
-            window.clearInterval(t);
-            $("#event-revitalised-1>img").style("visibility","visible");
+          else{
+            // console.log(s)
+            if(s>=8){
+              window.clearInterval(t);
+            }
+            if(s<=8 && this.value===str){
+              window.clearInterval(t);
+              $("#event-revitalised-1>img").style("visibility","visible");
+            }
           }
         });
+
 
         $("#event-revitalised-1>img").on("tap", function(){
           c.passedEvent("event06","event-revitalised.html");
